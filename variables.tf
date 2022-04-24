@@ -3,6 +3,7 @@ variable "zone" {
   default     = "us-central1-a"
 }
 
+
 variable "machine_type" {
   description = "Type of ce instance to provision"
   default     = "e2-medium"
