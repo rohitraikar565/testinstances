@@ -17,3 +17,7 @@ policy "enforce-gce-labels" {
     source = "./gce-labels.sentinel"
     enforcement_level = "advisory"
 }
+policy "restrict-availability-zones" {
+  source = "./restrict-availibility-zones.sentinel"
+  enforcement_level = "advisory"
+}
