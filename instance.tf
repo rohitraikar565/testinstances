@@ -1,3 +1,8 @@
+provider "google" {
+  credentials = "${file("inframod-training-09efb368bf98.json")}"
+  project     = "inframod-training"
+  zone        = "asia-south1-a"
+}
 resource "google_compute_instance" "default1" {
   name         = var.name
   machine_type = var.machine_type
