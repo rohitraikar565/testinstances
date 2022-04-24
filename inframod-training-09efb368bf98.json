@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "inframod-training",
+  "private_key_id": "09efb368bf985bc9e64a32ef9df3aca029409aae",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDLVulrlan0XDb1\nKzxZvjN6rdDaV+mbNlSWcYql0O0loNKWmsDsc5ZlK5x9Wx86kfnPTIOOMCzL+yxl\nCbeWwprfMlRlfKlHDpTo+o+Wh+p1Vyl234BIfw9XUrRHSmxBhUtziPuJaJIohtcE\nnGdP/ZXUhG15DvEWm0wt6zLcDsMyekkmq4RqHLnXQEa+IV0lrN02SJsdBeXN0tmg\nuDm7lthdOlfxQPZpBK3TRdDj0VsUYSUnZgtX/+Syli1sZI9OZdina98Fasldmkce\nCYWEJyvKFD9zCUnNftX1u+1r/BaBvZfac48vDLZHyB64wU+PxT1fI61l20DVQPe2\nhnVOYRFXAgMBAAECggEALNPMQduMzEJIG2ScuWwlDTakhH49Eeq4WzJMzqFwpor9\n4hXb0kTpMwSaS0h7af4khH7pwb79ITsOXnf18VaVrf76fCUvbGraiUIzxYvRNG0y\nxvIe5dydFTM2a0EM/KTWLXJVgcV781NGs82HOSs+jMtlFvskS0eRU842OC1I+yd1\nHFMXeMkawff6rMbS5GUFd3JNI/SABQ4y6/J+lt4upDJ0rAaJ2lSpKUtPsHPoqzkh\nagfIf+Y7B6CAkfJou80OMzU4P7KlwzVanSePG781mzOEihm9kF4XZHx0dxo6aZD6\nWfaZnniAE5hIrbmthwmPJSjVJT5v+ZxHr0jDx3//AQKBgQD/XaOcAiTwirr8/r48\nihvEAOqASuYzYmUwxQSxDqjfjqC54RAN7CyxJFzfca9OwakEjOLHk8njyYslcbO3\neEHp93c+17Ov0tOHJ/SkC3jF8BonCCMIHdDizb8AwO62IBq0zfjg4wz6wtgTXFAo\nvpJnBh6HmAt3YkWzF3LfBdpseQKBgQDL2DHMaaigj/HthqkoWM3gSaRU08u175IW\n9a/x+K5e0x3awlBFvlvAnhquDEr+cnB2KhWBbuZuGHd3WeTRWQO4QDI5v4Y9uex+\nba4JYuGv8aEUxjd8MQg/p8cvOj4cjstboCpjFGVARCbTZ71/QZ9O25JuafTVNqmY\n5joWtDBYTwKBgQD+QVl5J5ln9nkfFPSMimYCzXaureRuHPXrjP6S26nAjN3ytOer\nNQ96gF4IC8UkgSWr5iqV08wcBLuKWJ87eX0HWuFbrKC32w3JcDrgapuhWOJxImTe\n2/DzIS+frHkA1Q5CHyJBp09xDTbeb/dP2g8ijLExCG3CPBJxslMpQ0aq4QKBgDoX\nqdF8hw8DFso/ZzPVYw65TfjSxypZVQPwDq1h1qe1eLugRuopXtKc/DN/01uCV6SF\nR820Qj08AcfkuX4j5Rh8SxQEDgjHVKuPLFsGcBUJQoO+HY/qFVS2xuAhtBPFahT5\npzrHVDeldH8pAGsk03bQwoFu9tRQmLK3YfSYc3KnAoGAFRU4KULZ8FpZDHMqkRbl\nwjR7Bs6EuP7CkoaiA7fonR4emWJclPvxmZb8FllDlxcjSjxL0Q4yYYObQVR6F4W2\nj5qhGFrAus8MfdWy188rLig9z2ggwhVItSQ4+EePbQL54MaM5piNk5admGXN5XjI\nwDmTETM1GkbOIMKcA6psIiI=\n-----END PRIVATE KEY-----\n",
+  "client_email": "cgp-terraform@inframod-training.iam.gserviceaccount.com",
+  "client_id": "102201666371407023144",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cgp-terraform%40inframod-training.iam.gserviceaccount.com"
+}
