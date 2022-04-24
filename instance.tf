@@ -1,6 +1,6 @@
 provider "google" {
   credentials = "${file("inframod-training-09efb368bf98.json")}"
-  project     = "inframod-training"
+  project     = var.project
   zone        = "asia-south1-a"
 }
 resource "google_compute_instance" "default1" {
