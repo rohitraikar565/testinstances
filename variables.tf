@@ -13,3 +13,9 @@ variable "name" {
   description = "ce instance name"
   default     = "ubuntu"
 }
+
+variable "project" {
+  name = "inframod-training"
+  
+}
+  
