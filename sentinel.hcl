@@ -1,14 +1,14 @@
 policy "limit-cost-and-percentage-increase" {
-    source = "./limit-cost-and-percentage-increase.sentinel"
+    source = "./limit-cost-percentage-increse.sentinel"
     enforcement_level = "advisory"
 }
 
 policy "limit-proposed-monthly-cost" {
-    source = "./limit-proposed-monthly-cost.sentinel"
+    source = "./limit-monthly-proposed-cost.sentinel"
     enforcement_level = "advisory"
 }
 
 policy "restrict-gce-machine-type" {
-    source = "./restrict-gce-machine-type.sentinel"
+    source = "./restrict-gce-machinetype.sentinel"
     enforcement_level = "advisory"
 }
