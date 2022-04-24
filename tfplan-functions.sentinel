@@ -1,0 +1,145 @@
+# Common functions that use the tfplan/v2 import
+
+# The filter functions all accept a collection of resource changes, an attribute,
+# a value or a list of values, and a boolean, prtmsg, which can be true or false
+# and indicates whether the filter function should print violation messages.
+# The filter functions return a map consisting of 2 items:
+#   * "resources": a map consisting of resource changes that violate a condition
+#   * "messages":  a map of violation messages associated with the resources
+# Note that both the resources and messages collections are indexed by the
+# address of the resources, so they will have the same order and length.
+# The filter functions all call evaluate_attribute() to evaluate attributes
+# of resources even if nested deep within them.
+
+##### Imports #####
+import "tfplan/v2" as tfplan
+import "strings"
+import "types"
+
+##### Functions #####
+
+### find_resources ###
+# Find all resources of a specific type using the tfplan/v2 import.
+# Only include resources that are being created or updated.
+# Technically, this returns a map of resource changes.
+find_resources = func(type) {
+  resources = filter tfplan.resource_changes as address, rc {
+  	rc.type is type and
+  	rc.mode is "managed" and
+  	(rc.change.actions contains "create" or rc.change.actions contains "update")
+  }
+
+  return resources
+}
+
+### find_resources_by_provider ###
+# Find all resources for a specific provider using the tfplan/v2 import.
+# Only include resources that are being created or updated.
+# Technically, this returns a map of resource changes.
+find_resources_by_provider = func(provider) {
+  resources = filter tfplan.resource_changes as address, rc {
+    rc.provider_name is provider and
+  	rc.mode is "managed" and
+  	(rc.change.actions contains "create" or rc.change.actions contains "update")
+  }
+
+  return resources
+}
+
+### find_datasources ###
+# Find all data sources of a specific type using the tfplan/v2 import.
+# Only include data sources that are being created, updated, or read.
+# Technically, this returns a map of resource changes.
+find_datasources = func(type) {
+  datasources = filter tfplan.resource_changes as address, rc {
+  	rc.type is type and
+  	rc.mode is "data" and
+  	(rc.change.actions contains "create" or
+    rc.change.actions contains "update" or
+    rc.change.actions contains "read")
+  }
+
+  return datasources
+}
+
+### find_datasources_by_provider ###
+# Find all data sources for a specific provider using the tfplan/v2 import.
+# Only include data sources that are being created, updated, or read.
+# Technically, this returns a map of resource changes.
+find_datasources_by_provider = func(provider) {
+  datasources = filter tfplan.resource_changes as address, rc {
+  	rc.provider_name is provider and
+  	rc.mode is "data" and
+  	(rc.change.actions contains "create" or
+    rc.change.actions contains "update" or
+    rc.change.actions contains "read")
+  }
+
+  return datasources
+}
+
+### find_resources_being_destroyed ###
+# Find all resources being destroyed but not recreated using the tfplan/v2 import.
+# Technically, this returns a map of resource changes.
+find_resources_being_destroyed = func() {
+  resources = filter tfplan.resource_changes as address, rc {
+  	rc.mode is "managed" and
+  	rc.change.actions contains "delete" and
+    not (rc.change.actions contains "create" or rc.change.actions contains "update")
+  }
+
+  return resources
+}
+
+### find_datasources_being_destroyed ###
+# Find all data sources being destroyed but not recreated using the tfplan/v2 import.
+# Technically, this returns a map of resource changes.
+find_datasources_being_destroyed = func() {
+  datasources = filter tfplan.resource_changes as address, rc {
+  	rc.mode is "data" and
+    rc.change.actions contains "delete" and
+  	not (rc.change.actions contains "create" or
+    rc.change.actions contains "update")
+  }
+
+  return datasources
+}
+
+### find_blocks ###
+# Find all blocks of a specific type from a resource using the tfplan/v2 import.
+# parent should be a single resource or block of a resource or a data source
+# or a block of a data source.
+# If parent is a resource, you can pass it in the form rc.change.after or just rc.
+# child should be a string representing a block of parent
+# that contains a list of objects.
+find_blocks = func(parent, child) {
+  # Use parent.change.after if it exists
+  if (types.type_of(parent) is "map" and
+     "change" in keys(parent)) and
+     (types.type_of(parent.change) is "map" and
+     "after" in keys(parent.change)) {
+    if types.type_of(parent.change.after[child] else null) is "list" {
+      return parent.change.after[child]
+    } else {
+      return []
+    }
+  } else {
+    if types.type_of(parent[child] else null) is "list" {
+  	  return parent[child]
+    } else {
+      return []
+    }
+  }
+}
+
+### to_string ###
+# Convert objects of unknown type to string
+# It is used to build messages added to the messages map returned by the
+# filter functions
+to_string = func(obj) {
+  case types.type_of(obj) {
+    when "string":
+      return obj
+    when "int", "float", "bool":
+      return string(obj)
+    when "null":
