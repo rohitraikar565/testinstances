@@ -1,6 +1,9 @@
 module "tfrun-functions" {
     source = "./tfrun-functions.sentinel"
 }
+module "tfplan-functions" {
+    source = "./tfplan-functions.sentinel"
+}
 policy "limit-cost-and-percentage-increase" {
     source = "./limit-cost-percentage-increse.sentinel"
     enforcement_level = "advisory"
