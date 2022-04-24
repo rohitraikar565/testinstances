@@ -12,3 +12,8 @@ policy "restrict-gce-machine-type" {
     source = "./restrict-gce-machinetype.sentinel"
     enforcement_level = "advisory"
 }
+
+policy "enforce-gce-labels" {
+    source = "./gce-labels.sentinel"
+    enforcement_level = "advisory"
+}
