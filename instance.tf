@@ -6,7 +6,7 @@ provider "google" {
 resource "google_compute_instance" "default1" {
   name         = var.name
   machine_type = var.machine_type
-  zone         = var.zone
+  zone         = "asia-south1"
   count        = 6
  tags = ["lxi", "sxi"]
 
