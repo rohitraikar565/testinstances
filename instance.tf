@@ -1,14 +1,15 @@
 provider "google" {
   credentials = "${file("inframod-training-09efb368bf98.json")}"
   project     = "inframod-training"
-  zone        = "asia-south1"
+  zone        = "us-central1"
 }
-resource "google_compute_instance" "cxp" {
-  name         = var.name
-  machine_type = var.machine_type
-  zone         = "asia-south1"
-  count        = 6
- tags = ["lxi", "sxi"]
+resource "google_compute_instance" "default" {
+  name         = "test"
+  machine_type = "e2-medium"
+  zone         = "us-central1-a"
+  count        = 2
+
+  tags = ["foo", "bar"]
 
   boot_disk {
     initialize_params {
@@ -20,7 +21,9 @@ resource "google_compute_instance" "cxp" {
   scratch_disk {
     interface = "SCSI"
   }
+
   network_interface {
     network = "default"
   }
+
 }
