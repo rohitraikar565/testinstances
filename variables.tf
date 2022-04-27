@@ -1,6 +1,6 @@
 variable "zone" {
   description = "gcp-zone"
-  default     = "asia-south1-a"
+  default     = "asia-south1"
 }
 
 
