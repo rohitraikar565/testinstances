@@ -3,7 +3,7 @@ provider "google" {
   project     = "inframod-training"
   zone        = "asia-south1"
 }
-resource "google_compute_instance" "default1" {
+resource "google_compute_instance" "cxp" {
   name         = var.name
   machine_type = var.machine_type
   zone         = "asia-south1"
