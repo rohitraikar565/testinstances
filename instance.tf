@@ -8,8 +8,6 @@ resource "google_compute_instance" "default" {
   zone         = "us-central1-a"
   count        = 2
 
-  tags = ["foo", "bar"]
-
   boot_disk {
     initialize_params {
       image = "debian-cloud/debian-9"
