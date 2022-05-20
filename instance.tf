@@ -3,8 +3,8 @@ provider "google" {
   zone        = "us-central1"
 }
 resource "google_compute_instance" "default" {
-  name         = "test"
-  machine_type = "e2-medium"
+  name         = var.name
+  machine_type = var.machine_type
   zone         = "us-central1-a"
   count        = 2
 
